@@ -18,6 +18,8 @@ import '../../features/rewards/presentation/screens/points_dashboard_screen.dart
 import '../../features/rewards/presentation/screens/reward_catalog_screen.dart';
 import '../../features/profile/presentation/screens/profile_screen.dart';
 import '../../features/profile/presentation/screens/profile_setup_screen.dart';
+import '../../features/profile/presentation/screens/profile_view_screen.dart';
+import '../../features/profile/presentation/screens/profile_edit_screen.dart';
 import '../../features/map/presentation/screens/venue_map_screen.dart';
 import '../../shared/layouts/main_shell.dart';
 
@@ -85,6 +87,8 @@ final routerProvider = Provider<GoRouter>((ref) {
             builder: (_, __) => const ProfileScreen(),
             routes: [
               GoRoute(path: 'setup', builder: (_, __) => const ProfileSetupScreen()),
+              GoRoute(path: 'view', builder: (_, __) => const ProfileViewScreen()),
+              GoRoute(path: 'edit', builder: (_, __) => const ProfileEditScreen()),
             ],
           ),
           GoRoute(
