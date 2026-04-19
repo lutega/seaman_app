@@ -1,0 +1,67 @@
+name: seaman_app
+description: SeaReady - Certificate wallet & training platform untuk pelaut Indonesia
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+
+  # Navigation
+  go_router: ^14.6.2
+
+  # Backend
+  supabase_flutter: ^2.8.4
+
+  # HTTP
+  dio: ^5.8.0+1
+
+  # Local storage
+  hive_flutter: ^1.1.0
+  flutter_secure_storage: ^9.2.4
+
+  # Notifications
+  firebase_core: ^3.13.0
+  firebase_messaging: ^15.2.5
+  flutter_local_notifications: ^18.0.1
+
+  # Error tracking
+  sentry_flutter: ^8.14.2
+
+  # Functional programming (Either)
+  fpdart: ^1.1.1
+
+  # Utilities
+  intl: ^0.19.0
+  cached_network_image: ^3.4.1
+  image_picker: ^1.1.2
+  url_launcher: ^6.3.1
+  connectivity_plus: ^6.1.4
+
+  # UI
+  shimmer: ^3.0.0
+  phosphor_flutter: ^2.1.0
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.15
+  riverpod_generator: ^2.6.5
+  mocktail: ^1.0.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/maps/
