@@ -55,7 +55,7 @@ class MainShell extends StatelessWidget {
     if (location.startsWith('/home')) return 0;
     if (location.startsWith('/courses')) return 1;
     if (location.startsWith('/certificates')) return 2;
-    if (location.startsWith('/quest')) return 3;
+    if (location.startsWith('/rewards') || location.startsWith('/reward-catalog')) return 3;
     if (location.startsWith('/profile')) return 4;
     return 0;
   }
@@ -65,7 +65,7 @@ class MainShell extends StatelessWidget {
       case 0: context.go('/home');
       case 1: context.go('/courses');
       case 2: context.go('/certificates');
-      case 3: context.go('/profile');
+      case 3: context.go('/rewards');
       case 4: context.go('/profile');
     }
   }

@@ -20,6 +20,7 @@ import '../../features/profile/presentation/screens/profile_screen.dart';
 import '../../features/profile/presentation/screens/profile_setup_screen.dart';
 import '../../features/profile/presentation/screens/profile_view_screen.dart';
 import '../../features/profile/presentation/screens/profile_edit_screen.dart';
+import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/map/presentation/screens/venue_map_screen.dart';
 import '../../shared/layouts/main_shell.dart';
 
@@ -45,7 +46,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       ShellRoute(
         builder: (context, state, child) => MainShell(child: child),
         routes: [
-          GoRoute(path: '/home', builder: (_, __) => const CourseCatalogScreen()),
+          GoRoute(path: '/home', builder: (_, __) => const HomeScreen()),
           GoRoute(
             path: '/courses',
             builder: (_, __) => const CourseCatalogScreen(),
