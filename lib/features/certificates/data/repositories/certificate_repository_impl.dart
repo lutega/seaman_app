@@ -93,13 +93,15 @@ class CertificateRepositoryImpl implements CertificateRepository {
   Future<Either<Failure, String>> uploadDocument(String filePath, String certId) async {
     try {
       final userId = _client.auth.currentUser?.id ?? 'unknown';
-      final path = 'certificates/$userId/$certId.jpg';
+      // Path must start with userId/ for RLS policy to match
+      final path = '$userId/certificates/$certId.jpg';
       await _client.storage
           .from('user-documents')
           .upload(path, File(filePath), fileOptions: const FileOptions(upsert: true));
-      return right(_client.storage.from('user-documents').getPublicUrl(path));
-    } catch (_) {
-      return left(const StorageFailure());
+      // Bucket is private — store path, generate signed URL when displaying
+      return right(path);
+    } catch (e) {
+      return left(StorageFailure(e.toString()));
     }
   }
 }

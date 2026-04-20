@@ -118,7 +118,8 @@ class ProfileRepositoryImpl implements ProfileRepository {
     try {
       final file = File(filePath);
       final userId = _client.auth.currentUser?.id ?? 'unknown';
-      final storagePath = 'documents/$userId/$fileName';
+      // Path must start with userId/ for RLS policy to match
+      final storagePath = '$userId/$fileName';
 
       await _client.storage.from('user-documents').upload(
             storagePath,
@@ -126,10 +127,10 @@ class ProfileRepositoryImpl implements ProfileRepository {
             fileOptions: const FileOptions(upsert: true),
           );
 
-      final url = _client.storage.from('user-documents').getPublicUrl(storagePath);
-      return right(url);
-    } catch (_) {
-      return left(const StorageFailure());
+      // Bucket is private — store path, generate signed URL when displaying
+      return right(storagePath);
+    } catch (e) {
+      return left(StorageFailure(e.toString()));
     }
   }
 }
