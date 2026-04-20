@@ -67,6 +67,22 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
     }
   }
 
+  Future<void> _submitWithoutDocs() async {
+    final userId = Supabase.instance.client.auth.currentUser?.id;
+    if (userId == null) return;
+
+    final ok = await ref.read(profileSetupControllerProvider.notifier).submitProfile(userId);
+    if (mounted) {
+      ref.invalidate(currentProfileProvider);
+      context.go('/profile');
+      if (!ok) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Data berhasil disimpan tanpa dokumen')),
+        );
+      }
+    }
+  }
+
   void _showSnack(String msg) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg)));
   }
@@ -211,7 +227,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
         SrButton(
           label: 'Lewati untuk sekarang',
           variant: SrButtonVariant.ghost,
-          onPressed: ctrl.isLoading ? null : () => context.go('/profile'),
+          onPressed: ctrl.isLoading ? null : _submitWithoutDocs,
         ),
       ],
     );
