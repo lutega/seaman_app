@@ -40,12 +40,6 @@ class ProfileScreen extends ConsumerWidget {
                 ? context.push('/profile/view')
                 : context.push('/profile/setup')),
         _menuItem(context,
-            icon: Icons.edit_outlined,
-            label: 'Edit Profil',
-            onTap: () => profile != null
-                ? context.push('/profile/edit')
-                : context.push('/profile/setup')),
-        _menuItem(context,
             icon: Icons.notifications_outlined,
             label: 'Pengaturan Notifikasi',
             onTap: () {}),

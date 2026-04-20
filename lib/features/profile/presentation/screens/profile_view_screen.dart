@@ -72,7 +72,7 @@ class _ProfileContent extends StatelessWidget {
           _infoRow('Nama Lengkap', profile.fullName),
           _infoRow('Tanggal Lahir', _formatDate(profile.birthDate)),
           _infoRow('Usia', '${profile.age} tahun'),
-          _infoRow('No. KTP (NIK)', '${profile.nikLast4.padLeft(16, '*').replaceAll('*', '●  ')}'),
+          _infoRow('No. KTP (NIK)', '●●●● ●●●● ●●●● ${profile.nikLast4}'),
           _infoRow('Alamat', profile.address),
           if (profile.seafarerNumber != null)
             _infoRow('No. Pelaut', profile.seafarerNumber!),
