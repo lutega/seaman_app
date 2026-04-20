@@ -58,9 +58,9 @@
 
 | # | Item | Status |
 |---|---|---|
-| 1.4.1 | Buat bucket `user-documents` (private) | `not yet` |
-| 1.4.2 | Buat bucket `partner-assets` (public, untuk logo partner) | `not yet` |
-| 1.4.3 | Apply RLS policy: user hanya akses folder `{user_id}/` | `not yet` |
+| 1.4.1 | Buat bucket `user-documents` (private) | `done` |
+| 1.4.2 | Buat bucket `partner-assets` (public, untuk logo partner) | `done` |
+| 1.4.3 | Apply RLS policy: user hanya akses folder `{user_id}/` | `done` |
 
 ### 1.5 Seed Data
 
