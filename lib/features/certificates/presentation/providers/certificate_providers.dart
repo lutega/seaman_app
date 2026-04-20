@@ -80,7 +80,7 @@ class AddCertController extends StateNotifier<AddCertState> {
 
   Future<void> pickDocument() async {
     final img = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 80);
-    if (img != null) state = state.copyWith(documentPath: img.path);
+    if (img != null && img.path.isNotEmpty) state = state.copyWith(documentPath: img.path);
   }
 
   Future<bool> submit(String userId) async {

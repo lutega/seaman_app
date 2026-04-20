@@ -211,7 +211,7 @@ class _CertificateAddScreenState extends ConsumerState<CertificateAddScreen> {
         const Text('Scan Dokumen (Opsional)',
             style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: SrColors.textPrimary)),
         const SizedBox(height: SrSpacing.xs),
-        if (path != null)
+        if (path != null && path.isNotEmpty)
           Stack(
             children: [
               ClipRRect(

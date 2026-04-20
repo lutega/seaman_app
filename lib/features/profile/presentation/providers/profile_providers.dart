@@ -95,13 +95,13 @@ class ProfileSetupController extends StateNotifier<ProfileSetupState> {
   Future<void> pickKtpImage() async {
     final picker = ImagePicker();
     final image = await picker.pickImage(source: ImageSource.camera, imageQuality: 80);
-    if (image != null) state = state.copyWith(ktpImagePath: image.path);
+    if (image != null && image.path.isNotEmpty) state = state.copyWith(ktpImagePath: image.path);
   }
 
   Future<void> pickKtpFromGallery() async {
     final picker = ImagePicker();
     final image = await picker.pickImage(source: ImageSource.gallery, imageQuality: 80);
-    if (image != null) state = state.copyWith(ktpImagePath: image.path);
+    if (image != null && image.path.isNotEmpty) state = state.copyWith(ktpImagePath: image.path);
   }
 
   Future<void> pickSelfieImage() async {
@@ -111,7 +111,7 @@ class ProfileSetupController extends StateNotifier<ProfileSetupState> {
       imageQuality: 80,
       preferredCameraDevice: CameraDevice.front,
     );
-    if (image != null) state = state.copyWith(selfieImagePath: image.path);
+    if (image != null && image.path.isNotEmpty) state = state.copyWith(selfieImagePath: image.path);
   }
 
   Future<bool> submitProfile(String userId) async {

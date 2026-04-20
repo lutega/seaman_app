@@ -224,7 +224,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
     required VoidCallback onCamera,
     required VoidCallback onGallery,
   }) {
-    if (imagePath != null) {
+    if (imagePath != null && imagePath.isNotEmpty) {
       return Stack(
         children: [
           ClipRRect(
@@ -282,7 +282,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
   }
 
   Widget _buildSelfieUploadArea(String? imagePath) {
-    if (imagePath != null) {
+    if (imagePath != null && imagePath.isNotEmpty) {
       return Center(
         child: Stack(
           alignment: Alignment.center,
