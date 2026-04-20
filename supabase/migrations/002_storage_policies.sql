@@ -1,11 +1,18 @@
--- Migration 002: Storage bucket policies
+-- Migration 002: Storage bucket policies (idempotent)
 -- Run AFTER creating buckets manually in Supabase Dashboard:
 --   1. "user-documents" (private)
 --   2. "partner-assets" (public)
 
+-- ─── Drop existing policies first (safe re-run) ───────────────────────────────
+drop policy if exists "user_documents_insert_own" on storage.objects;
+drop policy if exists "user_documents_select_own" on storage.objects;
+drop policy if exists "user_documents_update_own" on storage.objects;
+drop policy if exists "user_documents_delete_own" on storage.objects;
+drop policy if exists "partner_assets_public_read" on storage.objects;
+drop policy if exists "user_documents_admin_read"  on storage.objects;
+
 -- ─── user-documents: private, users only access their own folder ──────────────
 
--- Users can upload to their own folder (user_id/*)
 create policy "user_documents_insert_own"
   on storage.objects for insert
   with check (
@@ -13,7 +20,6 @@ create policy "user_documents_insert_own"
     and auth.uid()::text = (storage.foldername(name))[1]
   );
 
--- Users can read their own documents
 create policy "user_documents_select_own"
   on storage.objects for select
   using (
@@ -21,7 +27,6 @@ create policy "user_documents_select_own"
     and auth.uid()::text = (storage.foldername(name))[1]
   );
 
--- Users can update (re-upload) their own documents
 create policy "user_documents_update_own"
   on storage.objects for update
   using (
@@ -29,7 +34,6 @@ create policy "user_documents_update_own"
     and auth.uid()::text = (storage.foldername(name))[1]
   );
 
--- Users can delete their own documents
 create policy "user_documents_delete_own"
   on storage.objects for delete
   using (

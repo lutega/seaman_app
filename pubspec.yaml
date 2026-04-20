@@ -32,8 +32,8 @@ dependencies:
   firebase_messaging: ^15.2.5
   flutter_local_notifications: ^18.0.1
 
-  # Error tracking
-  sentry_flutter: ^8.14.2
+  # Error tracking (Fase 3 — tambahkan kembali saat DSN sudah dikonfigurasi)
+  # sentry_flutter: ^8.14.2
 
   # Functional programming (Either)
   fpdart: ^1.1.1

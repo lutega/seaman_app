@@ -3,12 +3,12 @@ class AppConfig {
 
   static const supabaseUrl = String.fromEnvironment(
     'SUPABASE_URL',
-    defaultValue: 'https://your-project.supabase.co',
+    defaultValue: 'https://dzbpkwaeinemmxumikeq.supabase.co',
   );
 
   static const supabaseAnonKey = String.fromEnvironment(
     'SUPABASE_ANON_KEY',
-    defaultValue: 'your-anon-key',
+    defaultValue: 'sb_publishable_uv0_7Yt3ZGM7rBlBJjZ_aw_Yf6wSyRX',
   );
 
   static const sentryDsn = String.fromEnvironment('SENTRY_DSN', defaultValue: '');
