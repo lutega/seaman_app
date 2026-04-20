@@ -66,8 +66,8 @@
 
 | # | Item | Status |
 |---|---|---|
-| 1.5.1 | Run `seed/001_partners.sql` (PMTC data) | `not yet` |
-| 1.5.2 | Run `seed/002_pmtc_courses.sql` (kursus aktif PMTC Q2 2026) | `not yet` |
+| 1.5.1 | Run `seed/001_partners.sql` (PMTC data) | `done` |
+| 1.5.2 | Run `seed/002_pmtc_courses.sql` (kursus aktif PMTC Q2 2026) | `done` |
 | 1.5.3 | Verifikasi data tampil di app (CourseCatalogScreen) | `not yet` |
 
 ### 1.6 App Integration Test
