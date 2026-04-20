@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/utils/debug_seeder.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../../../../core/utils/extensions.dart';
 import '../../../certificates/domain/entities/certificate.dart';
@@ -43,6 +44,57 @@ class HomeScreen extends ConsumerWidget {
             onPressed: () {},
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: SrColors.warning,
+        icon: const Icon(Icons.science_outlined, color: Colors.white),
+        label: const Text('Test API', style: TextStyle(color: Colors.white, fontSize: 13)),
+        onPressed: () async {
+          final results = await DebugSeeder.seedAll();
+          if (!context.mounted) return;
+          showDialog(
+            context: context,
+            builder: (_) => AlertDialog(
+              title: const Text('Hasil Test API'),
+              content: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: results.entries.map((e) {
+                    final ok = e.value.toString().startsWith('OK');
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 4),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(ok ? Icons.check_circle : Icons.error,
+                              size: 16,
+                              color: ok ? SrColors.success : SrColors.danger),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              '${e.key}: ${e.value}',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: ok ? SrColors.successText : SrColors.dangerText,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('Tutup'),
+                ),
+              ],
+            ),
+          );
+        },
       ),
       body: RefreshIndicator(
         onRefresh: () async {
