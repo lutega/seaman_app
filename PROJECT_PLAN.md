@@ -49,9 +49,9 @@
 
 | # | Item | Status |
 |---|---|---|
-| 1.3.1 | Aktifkan Email provider + custom SMTP (opsional, gunakan Supabase default) | `not yet` |
-| 1.3.2 | Kustomisasi email template (Bahasa Indonesia: confirm, reset password) | `not yet` |
-| 1.3.3 | Set Site URL dan redirect URLs (untuk deep link post-verifikasi) | `not yet` |
+| 1.3.1 | Aktifkan Email provider + custom SMTP (opsional, gunakan Supabase default) | `done` |
+| 1.3.2 | Kustomisasi email template (Bahasa Indonesia: confirm, reset password) | `done` |
+| 1.3.3 | Set Site URL dan redirect URLs (untuk deep link post-verifikasi) | `done` |
 | 1.3.4 | Aktifkan Google OAuth (Client ID + Secret dari Google Cloud Console) | `not yet` |
 
 ### 1.4 Storage
