@@ -32,17 +32,17 @@
 
 | # | Item | Status |
 |---|---|---|
-| 1.1.1 | Buat Supabase project baru | `not yet` |
-| 1.1.2 | Simpan `SUPABASE_URL` dan `SUPABASE_ANON_KEY` ke `.env` / launch config | `not yet` |
-| 1.1.3 | Update `app_config.dart` dengan credentials | `not yet` |
+| 1.1.1 | Buat Supabase project baru | `done` |
+| 1.1.2 | Simpan `SUPABASE_URL` dan `SUPABASE_ANON_KEY` ke `.env` / launch config | `done` |
+| 1.1.3 | Update `app_config.dart` dengan credentials | `done` |
 
 ### 1.2 Database Schema
 
 | # | Item | Status |
 |---|---|---|
-| 1.2.1 | Run `001_initial_schema.sql` (8 tables + RLS) | `not yet` |
-| 1.2.2 | Run `002_storage_policies.sql` (bucket user-documents) | `not yet` |
-| 1.2.3 | Run `003_admin_roles.sql` (app_metadata admin bypass) | `not yet` |
+| 1.2.1 | Run `001_initial_schema.sql` (8 tables + RLS) | `done` |
+| 1.2.2 | Run `002_storage_policies.sql` (bucket user-documents) | `done` |
+| 1.2.3 | Run `003_admin_roles.sql` (app_metadata admin bypass) | `done` |
 | 1.2.4 | Verifikasi RLS semua tabel di SQL Editor | `not yet` |
 
 ### 1.3 Auth Config
